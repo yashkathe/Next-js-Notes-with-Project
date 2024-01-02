@@ -17,6 +17,6 @@ jobs:
       uses: s0/git-publish-subdir-action@develop
       env:
         REPO: self
-        BRANCH: 01-Basics
+        BRANCH: 01-basics
         FOLDER: 01-Basics
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
