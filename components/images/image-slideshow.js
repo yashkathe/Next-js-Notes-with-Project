@@ -1,3 +1,5 @@
+"use client"; 
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
@@ -29,7 +31,7 @@ export default function ImageSlideshow() {
 			setCurrentImageIndex((prevIndex) =>
 				prevIndex < images.length - 1 ? prevIndex + 1 : 0
 			);
-		}, 5000);
+		}, 3000);
 
 		return () => clearInterval(interval);
 	}, []);
