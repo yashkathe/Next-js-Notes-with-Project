@@ -1,0 +1,21 @@
+name: Push Code to 02-original-project Branch
+on:
+  push:
+    paths:
+      - 02-Food-app-main-project/**
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Deploy 02-Food-app-main-project Code
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: 02-original-project
+          FOLDER: 02-Food-app-main-project
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}

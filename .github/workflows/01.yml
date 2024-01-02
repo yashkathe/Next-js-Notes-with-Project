@@ -1,0 +1,22 @@
+name: Push Code to 01-Basics branch
+on:
+  push:
+    paths:
+      - 01-Basics/**
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@master
+
+    - name: Deploy 01-Basics branch Code
+      uses: s0/git-publish-subdir-action@develop
+      env:
+        REPO: self
+        BRANCH: 01-Basics
+        FOLDER: 01-Basics
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
