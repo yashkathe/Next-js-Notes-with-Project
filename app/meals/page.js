@@ -11,6 +11,12 @@ async function Meals() {
 	return <MealsGrid meals={meals} />;
 }
 
+// static metadata
+export const metadata = {
+	title: "Meals Pages",
+	description: "All the Delicious meals",
+};
+
 export default function MealsPage(second) {
 	return (
 		<>
@@ -24,7 +30,8 @@ export default function MealsPage(second) {
 				</p>
 			</header>
 			<main className={classes.main}>
-				<Suspense fallback={<p className={classes.loading}>Fetching Meals...</p>}>
+				<Suspense
+					fallback={<p className={classes.loading}>Fetching Meals...</p>}>
 					<Meals />
 				</Suspense>
 			</main>

@@ -4,6 +4,16 @@ import { notFound } from "next/navigation";
 import classes from "./page.module.css";
 import { getMeal } from "@/fetch-functions/meals";
 
+// dynamic metadata
+export async function generateMetaData({ params }) {
+	const meal = getMeal(params.mealSlug);
+
+	return {
+		title: meal.title,
+		description: meal.summary,
+	};
+}
+
 export default function MealDetailsPage({ params }) {
 	const meal = getMeal(params.mealSlug);
 
